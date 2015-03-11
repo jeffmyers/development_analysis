@@ -1,0 +1,288 @@
+<html>
+
+<head title="AngularJS Project">
+    <script src="./scripts/jquery/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="/esriAPI/arcgis_js_api/library/3.10/3.10/js/dojo/dijit/themes/tundra/tundra.css" />
+    <link rel="stylesheet" type="text/css" href="/esriAPI/arcgis_js_api/library/3.10/3.10/js/esri/css/esri.css" />
+    <script type="text/javascript" src="/esriAPI/arcgis_js_api/library/3.10/3.10/init.js"></script>
+    
+    <link rel="stylesheet" href="http://g7svm12/highlightsjs/styles/tomorrow-night-bright.css">
+<script src="http://g7svm12/highlightsjs/highlight.pack.js"></script>
+
+    
+    
+    <script>
+         hljs.initHighlightingOnLoad();
+        require([
+    "dojo/parser",
+    "dijit/Calendar",
+            "dojo/ready"
+], function (parser, Calender, ready) {
+            ready(function () {
+                parser.parse();
+               
+            });
+        })
+    </script>
+    <style>
+        .inline {
+            width: 300px;
+            display: inline-block
+        }
+        .notes tr:hover {
+            background-color: white;
+            color: #000000;
+        }
+        .notes table {
+            background-color: black;
+            border: 2px solid white;
+        }
+        .notes table td {
+            /*	background-color: black;*/
+            border-top: 2px solid white;
+            border-left: 0px;
+            border-right: 0px;
+            border-collapse: collapse;
+        }
+        #center-title {
+            width: 468px;
+            height: 60px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: normal;
+            font-size: 48px;
+            font-family: monospace;
+        }
+        #left-title {
+            display: inline-block;
+        }
+        .title {} .content-data {
+            border: 2px solid #333;
+            margin-top: 5;
+                font-size: 107%;
+    line-height: 130%;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    width: 660px;
+    word-wrap: break-word;
+        }
+        .content-data h2 {
+            background: #333;
+            padding: 10px;
+            margin-top: 0px;
+        }
+        .content-data p {
+            margin-left: 2px;
+            margin-top: 1px;
+            margin-bottom: 1px;
+            text-indent: 50px;
+            
+}
+         p.win{
+            margin-left: 2px;
+            margin-top: 1px;
+            margin-bottom: 1px;
+            font-weight: bold;
+            text-indent: 0px;
+            margin-left: 50px; 
+        }
+        
+        .date {
+            text-align: right;
+            float: right;
+            display: inline-block;
+        }
+        a:link {
+            color: green;
+        }
+        a:visited {
+            color: green;
+        }
+        a:hover {
+            color: red;
+        }
+        a:active {
+            color: yellow;
+        }
+        body {
+            color: #ffffff;
+            background-color: #000000;
+        }
+        .notes {
+            color: #000000;
+            background-color: #eee;
+            font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+            margin-bottom: 10px;
+            margin-left: 50px;
+            max-height: 600px;
+            overflow: auto;
+            padding: 5px;
+            width: auto;
+        }
+        #mycal .dijitCalendarDisabledDate {
+            background-color: #333;
+            text-decoration: none;
+        }
+        #mycal {
+            /*background: #ccc;*/
+        }
+        #mycal tr:hover {
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+        }
+        #mycal.dijitCalendarDateTemplate {
+            height: 50px;
+            width: 50px;
+            border: 1px solid #ccc;
+            vertical-align: top
+        }
+        #mycal .dijitCalendarDateLabel,
+        #calendar5 .dijitCalendarDateTemplate {
+            text-align: inherit
+        }
+        #mycal .dijitCalendarDayLabel {
+            font-weight: bold
+        }
+        #mycal.dijitCalendarSelectedYear {
+            font-size: 1.5em
+        }
+        #mycal .dijitCalendarMonthLabel {
+            font-family: serif;
+            letter-spacing: 0.2em;
+            font-size: 2em
+        }
+        #mycal .dijitCalendarContainer {
+            margin: 25px auto;
+        }
+        .dijitCalendarHoveredDate {
+            background-color: #f00
+        }
+    </style>
+    <script>
+        picturenum = 0;
+        picturenumMax = 72;
+        picturenumMin = 0;
+        images = [];
+
+        $(document).ready(function () {
+            // for (i=0; i<picturenumMax;i++){
+            // 	setTimeout(forwardpicture(),500);
+            // var image = new Image();
+            // image.src = './pictures/time_aware_images/SouthCentralFL/timeAware'+i+'.png';
+            // images.push(image);
+            // 
+            // //	var pictureElement=document.getElementById('timeAware2Pictures');
+            // //	pictureElement.style.backgroundImage="url('./pictures/time_aware_images/SouthCentralFL/timeAware"+i+".png')";
+            // //		console.log(pictureElement);
+            // 
+            //}
+        });
+
+        function backpicture() {
+            picturenum -= 1;
+            if (picturenum < 0) {
+                picturenum = picturenumMax;
+            }
+            var image = new Image();
+            image.src = './pictures/time_aware_images/SouthCentralFL/timeAware' + picturenum + '.png';
+            image.onload = function () {
+                //pictureElement.style.backgroundImage="url('"+image.src+"')";
+                var cssBackground = 'url(' + image.src + ')';
+                var id = $('#timeAware2Pictures').css('background-image', cssBackground);
+
+            };
+
+        }
+
+        function forwardpicture() {
+            picturenum += 1;
+            if (picturenum > picturenumMax) {
+                picturenum = picturenumMin;
+            }
+            var image = new Image();
+            image.src = './pictures/time_aware_images/SouthCentralFL/timeAware' + picturenum + '.png';
+            image.onload = function () {
+                //pictureElement.style.backgroundImage="url('"+image.src+"')";
+
+                var cssBackground = 'url(' + image.src + ')';
+                var id = $('#timeAware2Pictures').css('background-image', cssBackground);
+
+                //	  	$('#timeAware2Pictures').fadeIn(5000, function() {
+                //            $('#timeAware2Pictures').css('background-image', cssBackground);
+                //            $('#timeAware2Pictures').fadeOut(5000);
+                //        });
+
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <div id="center-title" class="title">
+    Indy Dev
+    </div>
+
+    
+    
+    <div id="left-title" class="title">
+    <a href="https://angularjs.org/">AngularJS Site</a>
+    </div>
+
+                <div class='content-data'>
+     <h2> <span>First Things First</span>  <div class="date">3-4-2015</div> </h2>
+     <div class="notes">
+         <p>
+             <ol>
+         <li>Volocity</li>
+                 <li>smart objects</li>
+                 <ol>
+                 <li>As yyou name the smart objects .jpg or gif, then it generates your assestts for you</li>
+                     <li>filename.jpg,50% would resize the image accordingly</li>
+                     <li>filename.png-50%  WTF?  I guess you'd never resize a png???  wtf not?  Ask JT...</li>
+                 </ol>
+                 <li>Extract Assets lets you resize everything, or save, blur and raname file.</li>
+                 
+         </ol>
+       Velocity.  
+         <ol>
+         <li>Laravel</li>
+             <li>Packer.... he he</li>
+             <li>INTERVENSTION  is hte same as imageresizer in IIS.</li>
+         </ol>    
+         Tweet!!!  EricRJones
+         </p>
+</div>
+</div> 
+     
+ <div class='content-data'>
+     <h2> <span>ESRI DEV SUMMIT</span>  <div class="date">3-11-2015</div> </h2>
+     <div class="notes">
+        github ericGrossier
+        ???
+github gists....  what's that?
+leaflet.draw for drawing stuff.
+<br/>
+github/ESRI/esri-leaflet
+
+@geogangster
+<br/>
+<a href="http://bit.ly/1aLETLB" target="blank">ESRI Leaflet</a>
+
+
+
+
+<br/>
+
+Esri Leaflet vs Javascript API<br/>
+
+
+
+
+
+         </p>
+</div>
+</div> 
+
+    </body>
+
+</html>
