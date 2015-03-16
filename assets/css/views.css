@@ -1,0 +1,867 @@
+
+.tiny {
+    font-size: 9px;
+}
+#appMapViewContent {
+    top: 50px;
+}
+#appMap {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+#mapLocateButton {
+    left: 20px;
+    position: absolute;
+    top: 95px;
+    z-index: 50;
+}
+g {
+    cursor: pointer;
+}
+#mapFloorSelector {
+    margin: 20px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 50;
+}
+.floor-selector-option {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+    color: #fff;
+    cursor: pointer;
+    line-height: 34px;
+    margin: 3px 0;
+    padding: 5px 0;
+    width: 50px;
+}
+.floor-selector-option.current {
+    background-color: #aaa;
+}
+.floor-selector-label {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 12px;
+    margin-bottom: 3px;
+    padding: 2px 0;
+    width: 50px;
+}
+#mapFeaturesPanel {
+    background: none repeat scroll 0 0 #7868a7;
+    bottom: 0;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+    color: #fff;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: auto;
+    z-index: 500;
+}
+#mapFeaturesPanel.user-minimized {
+    height: 60px;
+    overflow: hidden;
+}
+#mapFeaturesPanel.minimized {
+    height: 40px;
+    overflow: hidden;
+}
+#mapFeaturesLegend {
+    background: none repeat scroll 0 0 #fff;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+    color: #666;
+    height: 40px;
+    text-align: center;
+}
+.attractions-dataset #mapFeaturesLegend {
+    height: 0;
+}
+.map-view-legend-item {
+    background: url("../img/map/Events_MapPin_Sessions80.png") no-repeat scroll 10px center / 14px auto rgba(0, 0, 0, 0);
+    display: none;
+    line-height: 40px;
+    padding: 0 10px 0 40px;
+}
+.sessions-dataset .map-view-legend-item.sessions-legend, .activities-dataset .map-view-legend-item.sessions-legend, .planner-dataset .map-view-legend-item.sessions-legend, .exhibitors-dataset .map-view-legend-item.exhibitors-legend, .attractions-dataset .map-view-legend-item.attractions-legend {
+    display: inline-block;
+}
+.sessions-dataset .map-view-legend-item.attractions-legend, .activities-dataset .map-view-legend-item.attractions-legend, .planner-dataset .map-view-legend-item.attractions-legend, .exhibitors-dataset .map-view-legend-item.attractions-legend {
+    display: none;
+}
+.attractions-dataset .map-view-legend-item.attractions-legend {
+    display: inline-block;
+}
+.attractions-dataset .map-view-legend-item.sessions-legend, .attractions-dataset .map-view-legend-item.exhibitors-legend {
+    display: none;
+}
+#mapFeaturesLocationName {
+    background: none repeat scroll 0 0 #fff;
+    color: #5a9359;
+    font-size: 14px;
+    left: 0;
+    line-height: 15px;
+    padding: 2px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 40px;
+}
+#mapFeaturesSelector {
+    margin: 0 45px;
+    min-height: 100px;
+    position: relative;
+}
+.attractions-dataset #mapFeaturesSelector {
+    min-height: 50px;
+}
+#mapFeaturesSelector .app-list-item {
+    background: none repeat scroll 0 0 transparent;
+    color: #fff;
+    display: none;
+}
+#mapFeaturesSelector .app-list-item.current {
+    display: block;
+    margin-bottom: 15px;
+}
+.attractions-dataset #mapFeaturesPanel.minimized {
+    height: 0;
+}
+#mapFeaturesNavigation {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 40px;
+}
+.noNav #mapFeaturesNavigation, .minimized #mapFeaturesNavigation, .user-minimized #mapFeaturesNavigation {
+    visibility: hidden;
+}
+.featureArrow {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 21px auto;
+    bottom: 0;
+    cursor: pointer;
+    line-height: 60px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 45px;
+}
+.featureArrow:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+#left-arrow {
+    background-image: url("../img/iOS/iOS_previous_icon.png");
+    left: 0;
+}
+#right-arrow {
+    background-image: url("../img/iOS/iOS_next_icon.png");
+    right: 0;
+}
+.featureArrow.disabled {
+    cursor: default;
+    opacity: 0.25;
+}
+.featureArrow.disabled:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+#mapFeatureIndicators {
+    bottom: 0;
+    height: 20px;
+    left: 50px;
+    position: absolute;
+    right: 50px;
+    text-align: center;
+}
+.map-feature-indicator {
+    background: none repeat scroll 0 0 transparent;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    display: inline-block;
+    height: 8px;
+    margin: 5px;
+    width: 8px;
+}
+.map-feature-indicator.current {
+    background: none repeat scroll 0 0 #fff;
+}
+#appListViewContent {
+    top: 50px;
+}
+.upcomingConferences-dataset #appListViewContent, .conferences-dataset #appListViewContent, .maps-dataset #appListViewContent {
+    margin-bottom: 0;
+    top: 0;
+}
+#appListViewContent .app-list-item, #appEventsViewContent .app-list-item {
+    background-size: 14px auto;
+    border-bottom: 1px solid #ccc;
+    color: #929497;
+    position: relative;
+}
+.app-list-item-inPlanner {
+    background: url("../img/corner_check_green.png") no-repeat scroll right top rgba(0, 0, 0, 0);
+    display: none;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+}
+.app-list-item.inPlanner .app-list-item-inPlanner {
+    display: block;
+}
+.app-list-item.siblingInPlanner .app-list-item-inPlanner {
+    background: url("../img/corner_check_gray.png") no-repeat scroll right top rgba(0, 0, 0, 0);
+    display: block;
+}
+.app-list-item.siblingInPlanner.inPlanner .app-list-item-inPlanner {
+    background: url("../img/corner_check_green.png") no-repeat scroll right top rgba(0, 0, 0, 0);
+    display: block;
+}
+.list-message {
+    color: #929497;
+    font-size: 13pt;
+    padding: 22px 10px;
+}
+.list-message-icon {
+    display: block;
+    float: left;
+    width: 40px;
+}
+.list-message-icon.menu-icon {
+    background: url("../img/iOS/iOS_smalll_menu_icon.png") no-repeat scroll center 5px / 24px auto rgba(0, 0, 0, 0);
+    margin-bottom: 20px;
+}
+#appList {
+    background: none repeat scroll 0 0 #efeeef;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.iOS-platform #appList {
+}
+.list-empty-message {
+    margin: 20px auto;
+    text-align: center;
+}
+#appListHeader {
+    background-image: url("../img/iOS/iOS_expanded_list_icon.png");
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    left: 0;
+    padding-left: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.app-list-divider {
+    background-color: #cbcbcb;
+    background-position: 6px center;
+    background-repeat: no-repeat;
+    background-size: 16px auto;
+    border-bottom: 1px solid #a6a8ab;
+    border-top: 1px solid #a6a8ab;
+    color: #57585a;
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+    padding-left: 10px;
+    position: relative;
+    text-transform: uppercase;
+}
+.app-list-divider.collapsible {
+    background-image: url("../img/iOS/iOS_expanded_list_icon.png");
+    cursor: pointer;
+    padding-left: 30px;
+}
+.app-list-divider.collapsed, #appListHeader.collapsed {
+    background-image: url("../img/iOS/iOS_collapsed_list_icon.png");
+    background-position: 11px center;
+    background-size: 8px auto;
+}
+.app-list-divider-count {
+    color: #888;
+    font-family: "Helvetica";
+    font-size: 12px;
+    font-weight: normal;
+    position: absolute;
+    right: 5px;
+    text-transform: capitalize;
+    top: -23px;
+}
+#appListHeader .app-list-divider-count {
+    top: 2px;
+}
+.app-list-group-content {
+    background: none repeat scroll 0 0 #f7f8f8;
+    height: auto;
+    position: relative;
+}
+.app-list-group-content.collapsed {
+    height: 0;
+    padding: 2px;
+    position: relative;
+}
+.remaining-items-counter {
+    padding: 5px;
+    text-align: center;
+}
+.app-list-item {
+    background-color: #f7f8f8;
+    color: #929497;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 13px;
+    min-height: 40px;
+    padding: 0;
+}
+.app-list-item.pad10 {
+    padding: 10px;
+}
+.collapsed .app-list-item {
+    display: none !important;
+}
+.app-list-item-content {
+    margin-right: 50px;
+    padding: 10px;
+}
+.app-list-item-logo {
+    float: left;
+    margin-right: 10px;
+    width: 100px;
+}
+.app-list-item-logo-holder {
+    clear: both;
+    float: left;
+    width: 110px;
+}
+.app-list-item-pastevent {
+    color: #9081bc;
+    font-family: "Helvetica",sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.app-list-item-title {
+    color: #4d4d4d;
+    font-family: "Avenir Roman",Arial,sans-serif;
+    font-size: 18px;
+    padding-bottom: 4px;
+}
+#mapFeaturesSelector .app-list-item-title {
+    color: #fff;
+}
+.app-list-item-location {
+    font-size: 14px;
+}
+#appListViewContent .app-list-item-location, #mapFeaturesSelector .app-list-item-location {
+    background-color: #efefef;
+    border: 1px solid #cbcbcb;
+    border-radius: 5px;
+    color: #5a9359;
+    display: inline-block;
+    padding: 5px 30px 5px 5px;
+    position: relative;
+    text-transform: capitalize;
+}
+#appListViewContent .app-list-item-location:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#appListViewContent .app-list-item-location.no-click {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    padding: 2px;
+}
+#appListViewContent .location-icon, #mapFeaturesSelector .location-icon {
+    background: url("../img/map/Events_MapPin_Sessions80.png") no-repeat scroll center center / 12px auto rgba(0, 0, 0, 0);
+    height: 32px;
+    position: absolute;
+    right: 0;
+    top: -2px;
+    width: 30px;
+}
+.app-list-item-location-button {
+    background: url("../img/map/Events_MapPin_Sessions80.png") no-repeat scroll center center / 14px auto rgba(0, 0, 0, 0);
+    border-left: 1px solid #eee;
+    bottom: 10px;
+    opacity: 0.5;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 50px;
+}
+.app-list-item-location-button:hover {
+    opacity: 1;
+}
+.app-list-item-date {
+    font-size: 14px;
+}
+.app-list-item-time {
+    font-family: sans-serif;
+    margin: 0 2px 6px;
+}
+.count-indicator {
+    color: #725fa7;
+    font-weight: bold;
+}
+.app-list-item-eventType {
+}
+.dev-note, .web-note {
+    color: #bbb;
+    display: none;
+    font-size: 14px;
+    padding-right: 5px;
+}
+.web-client .dev-note {
+    display: none;
+}
+.admin-mode .dev-conference .dev-note {
+    display: inline;
+}
+.admin-mode .web-note {
+    display: inline;
+}
+.web-conference {
+    display: none;
+}
+.dev-conference {
+    display: none;
+}
+.web-client .web-conference {
+    display: block;
+}
+.admin-mode .dev-conference {
+    display: block;
+}
+#mapFeaturesSelector .count-indicator {
+    color: #eee;
+    display: block;
+}
+#mapFeaturesSelector .item-auxiliary-info {
+    display: none;
+}
+#mapFeaturesSelector .app-list-item-content {
+    margin-right: 0;
+    margin-top: 30px;
+}
+#mapFeaturesSelector .app-list-item-location-button {
+    display: none;
+}
+#appGridViewContent {
+    bottom: 50px;
+    top: 50px;
+}
+.no-ads #appGridViewContent {
+    bottom: 0;
+    top: 50px;
+}
+.grid-expander-toggle {
+    background-image: url("../img/arrow-circled-right.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 21px auto;
+    cursor: pointer;
+    display: none;
+    left: auto;
+    width: 40px;
+}
+.multi-view .grid-view .grid-expander-toggle {
+    display: block;
+}
+.expanded-grid .grid-expander-toggle {
+    background-image: url("../img/arrow-circled-left.png");
+}
+#gridHeader {
+    background: url("../img/iOS/iOS_time_icon.png") no-repeat scroll 14px center / 34px auto #6c6d70;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 0 3px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+}
+#gridHeaderClock {
+    background: url("../img/iOS/iOS_time_icon.png") no-repeat scroll center center / 40px auto #6c6d70;
+    height: 60px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 60px;
+}
+#gridHeaderLabels {
+    padding-left: 60px;
+}
+.app-grid-header-label {
+    background: none repeat scroll 0 0 #5b955b;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    height: 40px;
+    padding: 10px 5px;
+    position: relative;
+    text-align: center;
+    width: 110px;
+}
+.app-grid-header-label.long-title {
+    font-size: 14px;
+    padding-bottom: 15px;
+    padding-top: 5px;
+}
+.app-grid-header-label-divider {
+    border-right: 1px solid #cbcbcb;
+    bottom: 0;
+    height: 22px;
+    position: absolute;
+    right: 0;
+}
+.app-grid-header-label.odd {
+}
+#gridBody {
+    background: none repeat scroll 0 0 #f7f7f7;
+    overflow: scroll;
+    position: absolute;
+    top: 60px;
+}
+#gridTimesHolder {
+    background: none repeat scroll 0 0 #eee;
+    border-right: 1px solid #ddd;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 60px;
+    z-index: 2;
+}
+.app-grid-times {
+}
+.grid-time-label {
+    border-bottom: 1px solid #ddd;
+    line-height: 49px;
+    padding-left: 0;
+}
+.grid-time-label.day-label, .session-day-label-bar {
+    background-color: #cbcbcb;
+    border-bottom: 1px solid #a6a8ab;
+    color: #57585a;
+    height: 24px;
+    line-height: 25px;
+}
+.MWA-grid-sessions-day {
+    background: url("../img/grid-large2.png") repeat scroll 60px 25px rgba(0, 0, 0, 0);
+    height: 1525px;
+    min-width: 100%;
+    position: relative;
+}
+.small-grid-mode .MWA-grid-sessions-day {
+    height: 775px;
+}
+.large-grid-mode .MWA-grid-sessions-day {
+    height: 1525px;
+}
+.MWA-grid-sessions-day.collapsed {
+    height: 25px;
+    overflow: hidden;
+}
+.session-day-label-bar {
+    background-color: #cbcbcb;
+    background-position: 6px center;
+    background-repeat: no-repeat;
+    background-size: 16px auto;
+    color: #57585a;
+    left: 60px;
+    padding-left: 10px;
+    position: absolute;
+}
+.session-day-label-bar.collapsible {
+    background-image: url("../img/iOS/iOS_expanded_list_icon.png");
+    cursor: pointer;
+    padding-left: 30px;
+}
+.session-day-label-bar.collapsible:hover {
+}
+.session-day-label-bar.collapsible.collapsed {
+    background-image: url("../img/iOS/iOS_collapsed_list_icon.png");
+    background-position: 11px center;
+    background-size: 8px auto;
+}
+.MWA-grid-sessions {
+    min-width: 100%;
+    position: relative;
+}
+.grid-session-cell {
+    background: none repeat scroll 0 0 rgba(91, 148, 90, 0.85);
+    border: 1px solid #bbb;
+    color: #fff;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 12px;
+    overflow: hidden;
+    position: absolute;
+    width: 118px;
+}
+.web-client .grid-session-cell:hover, .desktop-mode .grid-session-cell:hover, .device-mode .grid-session-cell.popup {
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.6);
+    margin: -10px;
+    min-height: 120px;
+    padding-bottom: 35px;
+    width: 138px;
+    z-index: 10;
+}
+.grid-session-title {
+    padding: 9px;
+}
+.grid-session-time {
+    padding: 9px;
+}
+.grid-session-offerings {
+    margin-top: -4px;
+    padding: 0 4px;
+}
+.grid-agenda-btn {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    display: none;
+    height: 34px;
+    line-height: 34px;
+    margin: 2px;
+    text-align: center;
+    top: auto;
+}
+.grid-session-cell.siblingInPlanner .app-list-item-inPlanner {
+    background: url("../img/corner_check_gray.png") no-repeat scroll right top / 18px auto rgba(0, 0, 0, 0);
+    display: block;
+}
+.grid-session-cell.inPlanner .app-list-item-inPlanner {
+    background: url("../img/corner_check_green.png") no-repeat scroll right top / 18px auto rgba(0, 0, 0, 0);
+    display: block;
+}
+#appTextHead, #appDetailsHead {
+    background: linear-gradient(#558d55, #67a966) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 16px;
+    padding: 0 20px 20px;
+    position: relative;
+    z-index: 1;
+}
+.app-text-head-title, .app-details-head-title {
+    border-bottom: 1px solid #eee;
+    font-size: 26px;
+    margin-bottom: 10px;
+    padding-bottom: 14px;
+    padding-right: 50px;
+}
+.app-text-head-title {
+    padding-top: 20px;
+    text-shadow: 0 1px 1px #333;
+}
+#appTextBody, #appDetailsBody {
+    background: none repeat scroll 0 0 #fff;
+    color: #777;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 21px;
+    min-height: 300px;
+    padding: 20px 10px 60px;
+}
+.app-text-body-title, .app-details-body-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.app-details-body-content {
+    color: #6c6d70;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+.app-text-body-content a {
+    color: #5b945a;
+    text-decoration: none;
+}
+#appDetailsWrapper {
+    background: none repeat scroll 0 0 #fff;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: 0;
+    z-index: 1000;
+}
+#appDetailsStickyHeader {
+    background: none repeat scroll 0 0 #558d55;
+    bottom: auto;
+    height: 44px;
+    position: absolute;
+}
+#appDetailsClose {
+    background: url("../img/Android/ic_menu_closeclear_dark.png") no-repeat scroll right top / 40px auto rgba(0, 0, 0, 0);
+    color: #fff;
+    cursor: pointer;
+    font-size: 10px;
+    height: 40px;
+    line-height: 50px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 40px;
+    z-index: 2;
+}
+#appDetailsStickyHeaderTitle {
+    color: #fff;
+    font-size: 15px;
+    left: 30px;
+    position: absolute;
+    right: 40px;
+    top: 3px;
+}
+#appDetailsStickyHeaderTitle.single-line {
+    line-height: 38px;
+}
+#appDetailsStickyHeaderTitle .app-details-head-level-indicator {
+    display: none;
+}
+#appDetailsContentContainer {
+    overflow-x: hidden;
+    overflow-y: auto;
+    top: 44px;
+}
+.app-details-body-asset {
+    padding: 5px 0;
+}
+.app-details-body-author {
+    font-size: 12px;
+}
+.toggleable-dev-block {
+    cursor: pointer;
+    height: 0;
+    overflow: hidden;
+    padding-top: 50px;
+}
+.toggleable-dev-block.active {
+    height: auto;
+    padding-top: 0;
+}
+.app-details-filterable-link {
+    color: #5b945a;
+    font-size: 21px;
+    line-height: 26px;
+}
+.app-details-filterable {
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+.app-details-filterable-label {
+    color: #bbb;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.app-details-head-booth {
+}
+.app-offering-item {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid #257830;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 2px 0;
+    padding: 8px 15px;
+}
+.app-offering-item.siblingInPlanner {
+    background: url("../img/corner_check_gray.png") no-repeat scroll right top rgba(0, 0, 0, 0.1);
+}
+.app-offering-item.inPlanner {
+    background: url("../img/corner_check_green.png") no-repeat scroll right top rgba(0, 0, 0, 0.1);
+}
+.app-offering-item.current {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.app-offering-menu {
+    display: none;
+    margin: 10px 0 0;
+    text-align: left;
+}
+.app-offering-item.current .app-offering-menu {
+    display: block;
+}
+.app-offering-button {
+    background: none repeat scroll 0 0 #ddeedb;
+    border-radius: 5px;
+    color: #5b945a;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    font-size: 12px;
+    line-height: 40px;
+    margin-right: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 140px;
+}
+.phone-mode .app-offering-button {
+    margin-right: 5px;
+    width: 115px;
+}
+.inPlanner .app-offering-button.add-button, .app-offering-button.remove-button {
+    display: none;
+}
+.inPlanner .app-offering-button.remove-button {
+    display: inline-block;
+}
+.phone-mode .app-offering-button.remove-button {
+}
+.planner-dataset .app-list-item-inPlanner {
+    display: none !important;
+}
+.glance-item {
+    padding: 10px 5px;
+}
+div#appGlancesBody {
+    margin: 10px;
+}
+.glances-date-header {
+    border-bottom: 1px solid #aaa;
+    font-size: 24px;
+    margin-top: 20px;
+}
+.glance-time-range {
+    font-size: 0.9em;
+}
+.glance-event-type {
+    color: #007ac2;
+    cursor: pointer;
+    padding: 10px;
+}
+.glance-title {
+    font-weight: bold;
+}
+.conferences-dataset #viewSubTitle {
+    display: none;
+}
+#appEventsLists {
+    background: none repeat scroll 0 0 #efeeef;
+    overflow: auto;
+    top: 50px;
+}
+.event-list-items {
+    display: none;
+}
+.event-list-items.current {
+    display: block;
+}
+#appEventsLists .app-list-item-title {
+    color: #4d4d4d;
+}
+.no-maps .app-list-item-content {
+    margin-right: 0;
+}
+.no-maps .app-view-mode-option.map-option, .no-maps .mapit-button, .no-maps #eventMaps-MenuOption {
+    display: none;
+}
+.no-maps .app-view-mode-option {
+    width: 50%;
+}
+.event-list-header.app-view-mode-option {
+    width: calc(100% / 3.001);
+}
